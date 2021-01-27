@@ -1,0 +1,22 @@
+<h2> Palavra: {{ palavra }} </h2>
+
+<br>
+
+<h2> Color: {{ color }} </h2>
+
+<input type="text" [value]="initialValue">
+
+<br>
+
+<button [disabled]='isDisabled'>Clique em mim!</button>
+
+<br>
+
+<p [attr.aria-label]="isDisabled ? 'Botão Desabilitado' : acessibilityText">
+
+"Um texto qualquer"
+</p>
+
+<br>
+
+<img [src]="imageURL">

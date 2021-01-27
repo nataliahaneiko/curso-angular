@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  pudim = "CARRO";
+  favoriteColor = "green";
+  title = "Seja bem vindo! =) ";
 
   constructor() {
   }
