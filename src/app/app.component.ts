@@ -7,15 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  pudim = "CARRO";
-  favoriteColor = "green";
-  title = "Seja bem vindo! =) ";
+  title = 'Seja bem-vindo! =)';
 
-  constructor() {
-  }
+  palavra = 'CARRO';
+  favoriteColor = 'green';
 
-  eventoRecebido($event){
-    console.log("AppComponent: evento recebido", $event);
+  constructor() { }
+
+  eventoRecebido($event) {
+    console.log('AppComponent: EVENTO RECEBIDO!', $event);
   }
 
 }

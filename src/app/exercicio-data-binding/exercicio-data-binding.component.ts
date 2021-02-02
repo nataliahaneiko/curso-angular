@@ -8,43 +8,96 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class ExercicioDataBindingComponent implements OnInit {
 
-  @Input() palavra!: string;
-  @Input() color!: string;
+  @Input() palavra: string;
+  @Input() color: string;
   @Output() clicado = new EventEmitter();
-  
-  imageURL = "https://i.pinimg.com/736x/aa/73/76/aa73762d4a65cffad330b619765a9a53.jpg";
-  initialValue = 'Valor Inicial';
+
+  imageURL = 'https://i.pinimg.com/736x/aa/73/76/aa73762d4a65cffad330b619765a9a53.jpg';
+  initialValue = 'Valor inicial';
   isDisabled = true;
-  acessibilityText = "Um texto acessível..."
+  accessibilityText = 'Um texto acessível';
 
-  valorDoInput = "";
+  valorDoInput = '';
 
-  constructor() { 
+  constructor() {
     setTimeout(() => {
-      this.isDisabled = false; 
-      console.log('isDisabled', this.isDisabled);
+      this.isDisabled = false;
+      console.log('isDisabled: ', this.isDisabled);
     }, 3000);
   }
 
   ngOnInit(): void {
   }
-  
-  onClick($event){
+
+  getImageURL() {
+    return this.imageURL;
+  }
+
+  onClick($event) {
     console.log('clicou!', $event);
   }
 
-  digitouAlgo($event){
-    this.valorDoInput=$event.target.value;
-    console.log($event);    
+  digitouAlgo($event) {
+    this.valorDoInput = $event.target.value;
+    console.log($event);
   }
 
-  passouMouse(){
-    console.log("Alguém passou o Mouse");
+  passouMouse() {
+    console.log('alguem passou mouse');
   }
 
-  onClickBotaoEmissor($event){
-    console.log("Devo emitir informações para o componente pai.");
-    this.clicado.emit($event);
+  onClickBotaoEmissor($event) {
+    console.log('Devo emitir informações para o componente pai.');
+    this.clicado.emit('Fui clicado!!!!');
   }
+
+  onValorAtualizadoNoContador(novoValor) {
+    console.log('onValorAtualizadoNoContador: ', novoValor);
+  }
+
+
+  // @Input() palavra: string;
+  // @Input() color!: string;
+  // @Output() clicado = new EventEmitter();
+  
+  // imageURL = "https://i.pinimg.com/736x/aa/73/76/aa73762d4a65cffad330b619765a9a53.jpg";
+  // initialValue = 'Valor Inicial';
+  // isDisabled = true;
+  // acessibilityText = "Um texto acessível..."
+
+  // valorDoInput = "";
+
+  // constructor() { 
+  //   setTimeout(() => {
+  //     this.isDisabled = false; 
+  //     console.log('isDisabled', this.isDisabled);
+  //   }, 3000);
+  // }
+
+  // ngOnInit(): void {
+  // }
+  
+  // onClick($event){
+  //   console.log('clicou!', $event);
+  // }
+
+  // digitouAlgo($event){
+  //   this.valorDoInput=$event.target.value;
+  //   console.log($event);    
+  // }
+
+  // passouMouse(){
+  //   console.log("Alguém passou o Mouse");
+  // }
+
+  // onClickBotaoEmissor($event) {
+  //   console.log('Devo emitir informações para o componente pai.');
+  //   this.clicado.emit('Fui clicado!!!!');
+  // }
+
+  // onValorAtualizadoNoContador(novoValor) {
+  //   console.log('onValorAtualizadoNoContador:', novoValor);
+
+  // }
 
 }
