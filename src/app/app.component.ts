@@ -14,7 +14,7 @@ export class AppComponent {
   constructor() {
   }
 
-  eventoRecebido($event){
+  eventoRecebido($event) {
     console.log("AppComponent: evento recebido", $event);
   }
 
