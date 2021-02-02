@@ -1,22 +1,33 @@
-<h2> Palavra: {{ palavra }} </h2>
+<!-- Exemplos Event Binding -->
 
-<br>
+<button 
+    (click)="onClickBotaoEmissor($event)">
+    Emitir informações de click
+</button><br><br>
 
-<h2> Color: {{ color }} </h2>
+<button
+    (click)="onClick($event)" 
+    (mouseenter)="passouMouse()">
+    Clique em mim!
+</button><br><br>
 
-<input type="text" [value]="initialValue">
+<input type="text" [value]='valorDoInput' (keyup)="digitouAlgo($event)"><br>
 
-<br>
+Valor do Input: {{ valorDoInput }}
 
-<button [disabled]='isDisabled'>Clique em mim!</button>
+<hr>
 
-<br>
+<!-- Exemplos Property Binding -->
+
+<p> Palavra: {{ palavra }} </p>
+<p> Color: {{ color }} </p>
+
+<input type="text" [value]="initialValue"><br>
+
+<button [disabled]='isDisabled'>Clique em mim!</button><br>
 
 <p [attr.aria-label]="isDisabled ? 'Botão Desabilitado' : acessibilityText">
-
-"Um texto qualquer"
-</p>
-
-<br>
+    "Um texto qualquer"
+</p><br>
 
 <img [src]="imageURL">
