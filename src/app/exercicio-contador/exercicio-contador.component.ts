@@ -13,11 +13,13 @@ export class ExercicioContadorComponent {
 
   constructor() { }
 
+  // tslint:disable-next-line: typedef
   incrementar() {
     this.valor = this.valor + 1;
     this.valorChange.emit(this.valor);
   }
 
+  // tslint:disable-next-line: typedef
   decrementar() {
     this.valor = this.valor - 1;
     this.valorChange.emit(this.valor);
