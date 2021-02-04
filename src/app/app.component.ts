@@ -8,12 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'Seja bem-vindo! =)';
-
+  
   palavra = 'CARRO';
   favoriteColor = 'green';
 
   constructor() { }
 
+  // tslint:disable-next-line: typedef
   eventoRecebido($event) {
     console.log('AppComponent: EVENTO RECEBIDO!', $event);
   }
