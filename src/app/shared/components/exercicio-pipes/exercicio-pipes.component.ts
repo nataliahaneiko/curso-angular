@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'app-exercicio-pipes',
   templateUrl: './exercicio-pipes.component.html',
   styleUrls: ['./exercicio-pipes.component.scss'],
-  providers: [DecimalPipe,],
+  providers: [DecimalPipe, ],
 })
 export class ExercicioPipesComponent{
 
@@ -34,8 +34,9 @@ compras = [{
   data: new Date(2020, 1, 10, 19, 30),
 }];
 
+// tslint:disable-next-line: typedef
 getPesoFormatado(peso: number) {
-  if(peso<=0){
+  if ( peso <= 0 ){
     return 'Sem peso';
   }
 
