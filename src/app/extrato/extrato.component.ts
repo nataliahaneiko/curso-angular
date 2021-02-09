@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Transacao } from './extrato.interfaces';
 import { ExtratoService } from './extrato.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { ExtratoService } from './extrato.service';
 })
 export class ExtratoComponent implements OnInit {
 
-  transacoes = [];
+  transacoes: Transacao[];
+
+  estaCarregando: boolean;
+  erroNoCarregamento: boolean;
 
   constructor(
     private extratoService: ExtratoService
@@ -17,6 +21,24 @@ export class ExtratoComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    this.transacoes = this.extratoService.getTransacoes();
+    this.carregarExtrato();
   }
+
+  // tslint:disable-next-line: typedef
+  carregarExtrato() {
+    this.estaCarregando = true;
+    this.erroNoCarregamento = false;
+
+    this.extratoService.getTransacoes()
+      .subscribe(
+        response => {
+        this.estaCarregando = false;
+        this.transacoes = response;
+      },
+      error => {
+          this.estaCarregando = false;
+          this.erroNoCarregamento = true;
+      });
+    }
 }
+
