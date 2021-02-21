@@ -9,21 +9,27 @@
         <button (click)="carregarExtrato()">Tentar novamente!</button>
     </div>
 
-    <table class="table table-hover" *ngIf="!estaCarregando && !erroNoCarregamento" >
-        <tr>
-            <th> ID </th>
-            <th> Data </th>
-            <th> Descrição </th>
-            <th> Valor </th>
-            <th> Caterogia </th>
-        </tr>
+    <div *ngIf="!estaCarregando && !erroNoCarregamento">
+        <button (click)="paginaAnterior()" [disabled]="pagina === 1" class="btn btn-primary"> Página anterior </button>
+        <p> Página atual: {{ pagina }} </p>
+        <button (click)="proximaPagina()" class="btn btn-primary"> Próxima página </button>
 
-        <tr *ngFor="let transacao of transacoes">
-            <td> {{ transacao.id }} </td>
-            <td> {{ transacao.data | date }} </td>
-            <td> {{ transacao.descricao }} </td>
-            <td> {{ transacao.valor | currency:'BRL' }} </td>
-            <td> {{ transacao.categoria }} </td>
-        </tr>
-    </table>
+        <table class="table table-hover" >
+            <tr>
+                <th> ID </th>
+                <th> Data </th>
+                <th> Descrição </th>
+                <th> Valor </th>
+                <th> Caterogia </th>
+            </tr>
+    
+            <tr *ngFor="let transacao of transacoes">
+                <td> {{ transacao.id }} </td>
+                <td> {{ transacao.data | date }} </td>
+                <td> {{ transacao.descricao }} </td>
+                <td> {{ transacao.valor | currency:'BRL' }} </td>
+                <td> {{ transacao.categoria }} </td>
+            </tr>
+        </table>
+    </div>
 </div>

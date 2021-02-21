@@ -13,10 +13,20 @@ export class ExtratoService {
 
   constructor(
     private http: HttpClient
-    ) { }
+  ) { }
 
   // tslint:disable-next-line: typedef
-  getTransacoes() {
-    return this.http.get<Transacao[]>(this.API_URL + '/transacoes');
+  getTransacoes(page: number) {
+    // Simular erro
+    // const error = throwError('Erro gerérico');
+    // return timer(3000)
+    // .pipe(
+    //   mergeMap(() => error)
+    // );
+    return this.http.get<Transacao[]>(this.API_URL + '/transacoes', {
+      params: {
+        _page: String(page),
+      }
+    });
   }
 }
